@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body class="bg-gray-900 h-screen w-full overflow-x-hidden " id="body">
+
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-b from-gray-900 to-transparent flex flex-row bg-black h-12 w-full fixed mr-5 text-white z-10 transition-colors duration-500 ease-in"
+    id="navbar">
+    <!-- Logo block -->
+    <div class="flex flex-row w-3/12 md:w-1/12  justify-center items-center ">
+        <p class="text-2xl text-red-500 font-mono">Logo</p>
+    </div>
+    <!-- Burger -->
+    <div class="flex w-3/12   items-center relative group">
+        <p class="text-sm md:hidden">Parcourir <i class="bi bi-caret-down-fill"></i></p>
+        <div class="absolute w-52 md:w-full -left-1/2 top-full invisible group-hover:visible border-t-2
+             border-slate-50 md:visible md:inline-block md:top-0 md:left-0 md:border-t-0 md:bg-none
+             ">
+            <ul
+                class=" w-full text-center bg-opacity-50 md:flex md:items-center md:mt-0 md:space-x-3 md:h-full">
+                <li
+                    class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li
+                    class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                    <a href="series.html">Series</a></li>
+                <li
+                    class="bg-slate-950 hover:bg-slate-900 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent md:hover:bg-transparent hover:md:text-slate-200">
+                    <a href="movies.html">Films</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-4/12 md:w-7/12">
+
+    </div>
+    <!-- Search box -->
+    <div class="h-full w-fit flex justify-center items-center ">
+        <i class="bi bi-search text-xl cursor-pointer" id="search-icon"></i>
+        <!-- Search dropdown -->
+        <div id="search"
+            class="absolute flex items-center px-5 bg-slate-900 h-3/4 bg-opacity-80  w-screen group-hover:w-screen left-0 top-full border-white ring-2 invisible  overflow-x-clip navbar-search">
+            <i class="bi bi-search text-1xl mx-2"></i>
+            <input id="search-input" type="text" class="bg-transparent h-full w-full border-none outline-none text-white"
+                placeholder="Rechercher un film ou une series">
+        </div>
+    </div>
+</nav>
+    <!-- Top -->
+    <div class="h-3/6 w-full md:h-screen relative drop-shadow-2xl ">
+
+        <!-- Top Image -->
+        <img src="assets/img/test-first.jpg" alt="" class="w-full h-full z-0 absolute inline " id="topImg">
+        <div class="w-full h-1/3 bottom-0 z-0 absolute bg-gradient-to-b from-transparent to-gray-900"></div>
+
+        <!-- Title -->
+        <div class="absolute left-5 top-3/4 w-1/2">
+            <p class="text-lg md:text-3xl font-semibold text-white" id="title">La Planète des Singes : Le Nouveau
+                Royaume </p>
+        </div>
+
+    </div>
+
+    <!-- First List -->
+    <div class="px-12 ">
+        <div class="swiper w-full h-32 ">
+            <div class="flex flex-row mb-5">
+                <p class="font-semibold text-lg font-serif text-white ">Tendances</p>
+                <div class="w-20 h-8  rounded-full ml-5 relative flex justify-between border-2 border-slate-800 items-center z-1 bg-slate-900 shadow-lg"
+                    id="trending-choice">
+                    <div class="w-1/2 h-full rounded-full bg-white absolute ring-1 left-0" id="trending-circle"></div>
+                    <i class="bi bi-film  ml-3 z-10 text-slate-900 cursor-pointer" id="trending-movie"></i>
+                    <i class="bi bi-tv text-white mr-3 z-10 cursor-pointer" id="trending-tv"></i>
+
+                </div>
+            </div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper flex items-stretch" id="trending">
+                <!-- Slides -->
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+
+        </div>
+    </div>
+    <!-- Seconde liste -->
+    <div class="px-12 mt-5">
+        <div class="swiper w-full h-32  ">
+            <div class="flex flex-row mb-5">
+                <p class="font-semibold text-lg font-serif text-white ">Prochainement</p>
+                <div
+                    class="w-20 h-8  rounded-full ml-5 relative flex justify-between items-center border-2  border-slate-800 z-1 bg-slate-900">
+                    <div class="w-10 h-full rounded-full bg-white absolute ring-1 left-0" id="upcoming-circle"></div>
+                    <i class="bi bi-film  ml-3 z-10 text-slate-900 cursor-pointer" id="upcoming-movie"></i>
+                    <i class="bi bi-tv text-white mr-3  z-10 cursor-pointer" id="upcoming-tv"></i>
+
+                </div>
+            </div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="upcoming">
+                <!-- Slides -->
+                <div class="swiper-slide w-1/3 roun"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+                <div class="swiper-slide w-1/3"><img src="assets/img/logo.png" alt="" class="w-full h-full"></div>
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev "></div>
+            <div class="swiper-button-next"></div>
+
+
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="h-12 bg-slate-800 mt-20 text-center flex items-center ring-3 ring-gray-800 text-gray-600 justify-center">
+        <p>Copyright 2024</p>
+    </footer>
+
+</body>
+
+</html>
+
+<script src="assets/js/movie.js"></script>
+<script src="assets/js/carousel.js"></script>
+<script src="assets/js/navbar.js"></script>

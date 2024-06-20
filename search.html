@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Recherche</title>
+</head>
+
+<body>
+
+    <body class="bg-gray-900 h-screen w-full overflow-x-hidden " id="body">
+
+        <!-- Navbar -->
+        <nav class="bg-gradient-to-b from-gray-900 to-transparent flex flex-row bg-black h-12 w-full fixed mr-5 text-white z-10 transition-colors duration-500 ease-in"
+            id="navbar">
+            <!-- Logo block -->
+            <div class="flex flex-row w-3/12 md:w-1/12  justify-center items-center ">
+                <p class="text-2xl text-red-500 font-mono">Logo</p>
+            </div>
+            <!-- Burger -->
+            <div class="flex w-3/12   items-center relative group">
+                <p class="text-sm md:hidden">Parcourir <i class="bi bi-caret-down-fill"></i></p>
+                <div class="absolute w-52 md:w-full -left-1/2 top-full invisible group-hover:visible border-t-2
+                     border-slate-50 md:visible md:inline-block md:top-0 md:left-0 md:border-t-0 md:bg-none
+                     ">
+                    <ul
+                        class=" w-full text-center bg-opacity-50 md:flex md:items-center md:mt-0 md:space-x-3 md:h-full">
+                        <li
+                            class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                            <a href="index.html">Accueil</a>
+                        </li>
+                        <li
+                            class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                            <a href="series.html">Series</a>
+                        </li>
+                        <li
+                            class="bg-slate-950 hover:bg-slate-900 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent md:hover:bg-transparent hover:md:text-slate-200">
+                            <a href="movies.html">Films</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-4/12 md:w-7/12">
+
+            </div>
+            <!-- Search box -->
+            <div class="h-full w-fit flex justify-center items-center ">
+                <i class="bi bi-search text-xl" id="search-icon"></i>
+                <!-- Search dropdown -->
+                <div id="search"
+                    class="absolute flex items-center px-5 bg-slate-900 h-3/4  w-screen group-hover:w-screen left-0 top-full border-white ring-2 invisible  overflow-x-clip navbar-search">
+                    <i class="bi bi-search text-1xl mx-2"></i>
+                    <input id="search-input" type="text"
+                        class="bg-transparent h-full w-full border-none outline-none text-white"
+                        placeholder="Rechercher un film ou une series">
+                </div>
+            </div>
+        </nav>
+        <div class="h-12"></div>
+
+        <h1 class="text-2xl lg:text-3xl font-semibold my-2 text-white ml-3" id="title-search">Recherche: </h1>
+
+        <div class="min-h-dvh">
+            <div class="w-full  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-5 mt-5 items-stretch gap-2 "
+                id="results">
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <!-- Footer -->
+        <footer class=" w-full h-12 bg-slate-800 mt-5 text-center flex items-center text-gray-600 justify-center">
+            <p>Copyright 2024</p>
+        </footer>
+    </body>
+
+</html>
+
+<script src="assets/js/navbar.js"></script>
+<script src="assets/js/search.js"></script>

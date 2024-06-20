@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Liste de series</title>
+</head>
+
+<body>
+
+    <body class="bg-gray-900 h-screen w-full overflow-x-hidden " id="body">
+
+        <!-- Navbar -->
+        <nav class="bg-gradient-to-b from-gray-900 to-transparent flex flex-row bg-black h-12 w-full fixed mr-5 text-white z-10 transition-colors duration-500 ease-in"
+            id="navbar">
+            <!-- Logo block -->
+            <div class="flex flex-row w-3/12 md:w-1/12  justify-center items-center ">
+                <p class="text-2xl text-red-500 font-mono">Logo</p>
+            </div>
+            <!-- Burger -->
+            <div class="flex w-3/12   items-center relative group">
+                <p class="text-sm md:hidden">Parcourir <i class="bi bi-caret-down-fill"></i></p>
+                <div class="absolute w-52 md:w-full -left-1/2 top-full invisible group-hover:visible border-t-2
+                     border-slate-50 md:visible md:inline-block md:top-0 md:left-0 md:border-t-0 md:bg-none
+                     ">
+                    <ul
+                        class=" w-full text-center bg-opacity-50 md:flex md:items-center md:mt-0 md:space-x-3 md:h-full">
+                        <li
+                            class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                            <a href="index.html">Accueil</a>
+                        </li>
+                        <li
+                            class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                            Series</li>
+                        <li
+                            class="bg-slate-950 hover:bg-slate-900 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent md:hover:bg-transparent hover:md:text-slate-200">
+                            <a href="movies.html">Films</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-4/12 md:w-7/12">
+
+            </div>
+            <!-- Search box -->
+            <div class="h-full w-fit flex justify-center items-center ">
+                <i class="bi bi-search text-xl cursor-pointer" id="search-icon"></i>
+                <!-- Search dropdown -->
+                <div id="search"
+                    class="absolute flex items-center px-5 bg-slate-900 h-3/4  w-screen group-hover:w-screen left-0 top-full border-white ring-2 invisible  overflow-x-clip navbar-search">
+                    <i class="bi bi-search text-1xl mx-2"></i>
+                    <input id="search-input" type="text" class="bg-transparent h-full w-full border-none outline-none text-white"
+                        placeholder="Rechercher un film ou une series">
+                </div>
+            </div>
+        </nav>
+        <div class="h-12"></div>
+        
+            <h1 class="text-2xl lg:text-3xl font-semibold my-2 text-white ml-3">Series</h1>
+        
+
+        <div class="pt-2 px-3 grid grid-cols-3 md:grid-cols-4 gap-1">
+            <!-- Mots-clés -->
+            <div
+                class="bg-gray-800 relative text-sm rounded-sm text-gray-400 flex justify-between px-2 items-center hover:bg-gray-700 hover:text-white group">
+                <p id="sortBy" value="popularity.desc">Popularité +/-</p>
+                <i class="bi bi-chevron-down"></i>
+                <ul
+                    class="absolute ring-1 ring-gray-600 transition-transform transform scale-y-0 group-hover:scale-y-100 ease-in-out duration-300 bg-gray-800 left-0 min-w-full top-full invisible group-hover:visible origin-top">
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1 sort"
+                        value="popularity.desc">
+                        Popularité +/-
+                    </li>
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1 sort"
+                        value="popularity.asc">
+                        Popularité -/+
+                    </li>
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1 sort"
+                        value="popularity.asc">
+                        Titre A-Z
+                    </li>
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1 sort"
+                    value="popularity.desc">
+                    Titre Z-A
+                    </li>
+
+
+                </ul>
+            </div>
+            <!-- Genre -->
+            <div
+                class="bg-gray-800 relative text-sm rounded-sm text-gray-400 flex justify-between px-2 items-center hover:bg-gray-700 hover:text-white group">
+                <p>Genre</p>
+                <i class="bi bi-chevron-down"></i>
+                <ul class="absolute ring-1 ring-gray-600 transition-transform transform scale-y-0 group-hover:scale-y-100 ease-in-out duration-300 bg-gray-800 left-0 min-w-full top-full invisible group-hover:visible origin-top"
+                    id="genre-list">
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="28" id="genre-Action">Action
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="12" id="genre-Aventure">Aventure
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="16" id="genre-Animation">Animation
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="35" id="genre-Comédie">Comédie
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="80" id="genre-Crime">Crime
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="99" id="genre-Documentaire">Documentaire
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="18" id="genre-Drame">Drame
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="10751" id="genre-Familial">Familial
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="14" id="genre-Fantastique">Fantastique
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="36" id="genre-Histoire">Histoire
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="27" id="genre-Horreur">Horreur
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="10402" id="genre-Musique">Musique
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="9648" id="genre-Mystère">Mystère
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="10749" id="genre-Romance">Romance
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="878" id="genre-Science-Fiction">Science-Fiction
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="10770" id="genre-Téléfilm">Téléfilm
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="53" id="genre-Thriller">Thriller
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="10752" id="genre-Guerre">Guerre
+                    </li>
+
+                    <li class="text-sm font-semibold flex items-center hover:text-black hover:bg-gray-300 px-2 py-1">
+                        <input class="mr-2" type="checkbox" name="37" id="genre-Western">Western
+                    </li>
+                </ul>
+            </div>
+
+            <div
+                class="bg-gray-800 relative text-sm rounded-sm text-gray-400 flex justify-between pl-2 items-center hover:bg-gray-700 hover:text-white group">
+
+                <input
+                    class="mr-2  bg-transparent outline-none w-full h-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number" name="" id="year" placeholder=" Année">
+
+            </div>
+
+            <button id="get-checked"
+                class="col-span-3 md:col-span-1 rounded-sm bg-gray-700 hover:bg-gray-600 text-gray-400">Filtrer</button>
+        </div>
+
+
+        <div class="w-full min-h-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-5 mt-5 items-stretch gap-2"
+            id="results">
+
+
+
+        </div>
+
+        <!-- More -->
+        <div class="w-full grid grid-cols-1 px-2 mt-5">
+            <button class="rounded-sm bg-gray-700 hover:bg-gray-600 text-gray-400" id="more">Afficher
+                d'avantage</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="h-12 bg-slate-800 mt-5 text-center flex items-center text-gray-600 justify-center">
+            <p>Copyright 2024</p>
+        </footer>
+    </body>
+
+</html>
+<script src="assets/js/filter.js"></script>
+<script src="assets/js/navbar.js"></script>

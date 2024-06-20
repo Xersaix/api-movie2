@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper-button-next {
+
+    color: gainsboro;
+    transform: translateY(+50%)
+}
+
+.swiper-button-prev {
+
+    transform: translateY(+50%)
+}
+
+.swiper-slide {
+    height: auto;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background:
+        radial-gradient(closest-side, #081C22 79%, transparent 80% 100%),
+        conic-gradient(green 40%, pink 0);
+}
+
+.navbar-search{
+
+    transition: height 1.5s;
+}
