@@ -20,6 +20,13 @@ if (document.title == "Liste de Films") {
     title = "tv"
 }
 
+function getIdForDetail(data,movieOrNot)
+{
+localStorage.setItem("detail",[data,movieOrNot])
+window.location.href = "detail.html";
+
+}
+
 var last_filter_order = []
 var page_number = 1
 function Filter(page, sorting, genre, year) {
@@ -56,7 +63,7 @@ function Filter(page, sorting, genre, year) {
             for (let index = 0; index < data["results"].length; index++) {
                 let image_link = "https://image.tmdb.org/t/p/original";
                 result_show.innerHTML += `            
-                <div class="h-[10rem] bg-gray-800 rounded-md shadow-md flex flex-row">
+                <div onclick="getIdForDetail(${data["results"][index]["id"]},${title == "movie" ? true : false})" class="h-[12rem] bg-gray-800 rounded-md shadow-md flex flex-row">
                     <div class='h-full w-2/6 rounded-md'>
                         <img src="${data["results"][index]["poster_path"] ? image_link + data["results"][index]["poster_path"] : "assets/img/No_Image_Available.jpg"}" alt="" class="object-fill h-full w-full rounded-l-md">
                     </div>

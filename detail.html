@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/circular-progressbar/circularProgressBar.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+    <title></title>
+</head>
+
+<body>
+
+    <body class="bg-gray-900 h-screen w-full overflow-x-hidden " id="body">
+
+        <!-- Navbar -->
+        <nav class="bg-gradient-to-b from-gray-900 to-transparent flex flex-row bg-black h-12 w-full fixed mr-5 text-white z-10 transition-colors duration-500 ease-in"
+            id="navbar">
+            <!-- Logo block -->
+            <div class="flex flex-row w-3/12 md:w-1/12  justify-center items-center ">
+                <img src="assets/img/moviescop.png" alt="" class="size-20">
+            </div>
+            <!-- Burger -->
+            <div class="flex w-3/12   items-center relative group">
+                <p class="text-sm md:hidden">Parcourir <i class="bi bi-caret-down-fill"></i></p>
+                <div class="absolute w-52 md:w-full -left-1/2 top-full invisible group-hover:visible border-t-2
+                     border-slate-50 md:visible md:inline-block md:top-0 md:left-0 md:border-t-0 md:bg-none
+                     ">
+                    <ul
+                        class=" w-full text-center bg-opacity-50 md:flex md:items-center md:mt-0 md:space-x-3 md:h-full">
+                        <li
+                            class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                            <a href="index.html">Accueil</a>
+                        </li>
+                        <li
+                            class="bg-slate-950 hover:bg-slate-800 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent hover:md:bg-transparent hover:md:text-slate-200">
+                            <a href="series.html">Series</a></li>
+                        <li
+                            class="bg-slate-950 hover:bg-slate-900 hover:bg-opacity-50 bg-opacity-50 py-3 md:bg-transparent md:hover:bg-transparent hover:md:text-slate-200">
+                            <a href="movies.html">Films</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-4/12 md:w-7/12">
+
+            </div>
+            <!-- Search box -->
+            <div class="h-full w-fit flex justify-center items-center ">
+                <i class="bi bi-search text-xl" id="search-icon"></i>
+                <!-- Search dropdown -->
+                <div id="search"
+                    class="absolute flex items-center px-5 bg-slate-900 h-3/4  w-screen group-hover:w-screen left-0 top-full border-white ring-2 invisible  overflow-x-clip navbar-search">
+                    <i class="bi bi-search text-1xl mx-2"></i>
+                    <input id="search-input" type="text" class="bg-transparent h-full w-full border-none outline-none text-white"
+                        placeholder="Rechercher un film ou une series">
+                </div>
+            </div>
+        </nav>
+        <div class="h-12  "></div>
+        
+            
+        
+
+        <div  id="background" class="h-full md:h-4/6 lg:h-4/6 w-full bg-no-repeat bg-cover relative mt-10" style="background-image: url('https://media.themoviedb.org/t/p/w1280/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg');">
+
+            
+            <div class="absolute w-full h-full backdrop-blur-sm bg-black bg-opacity-70 flex flex-col lg:flex-row ">
+                <!-- Film or Series Poster -->
+                <div id ="poster"  class=" h-2/6 md:h-3/6 py-3 lg:h-full w-full lg:w-3/12 flex justify-center items-center ">
+
+                    <img src="https://image.tmdb.org/t/p/w500/hbxqFdWXHeLIJfagMMhVG5SV5tb.jpg" alt="" class=" h-full rounded-md">
+                </div>
+                <!-- Film or Series Detail -->
+                <div class=" w-full lg:w-7/12 h-full  flex flex-col">
+                    <!-- Title -->
+                    <div class="h-1/6 lg:h-2/6 w-full flex flex-col pl-5 justify-center ">
+                        <p id="title" class="text-white text-xl lg:text-3xl font-bold">Furiosa : Une saga Mad Max</p>
+                        <p id="date" class="text-white font-thin">22/05/2024 Action,Aventure,Science-Fiction</p>
+                    </div>
+                    <div class="text-white px-5">
+
+                        <div class="flex flex-row items-center mb-2">
+
+                            <div class="pie mt-5 " data-pie='{ "percent": 80 ,"fontColor" : "white" }'></div>
+                            <p class="font-semibold text-lg ml-2">
+                                Évaluation <br>
+                                des <br>
+                                utilisateurs</p>
+                        </div>
+                        <p id="tagline" class="font-light text-slate-400">Ne rencontrez jamais vos héros.</p>
+                        <p class="font-semibold lg:text-xl mb-1 lg:mb-3">Synopsis</p>
+                        <p id="synopsis" class="text-base lg:text-lg">
+                            Alors que le monde s'écroule, la jeune Furiosa tombe entre les mains d'une horde de motards dirigée par le seigneur de la guerre Dementus. En traversant le Wasteland, ils tombent sur la Citadelle présidée par l'Immortan Joe. Alors que les deux tyrans se battent pour la domination, Furiosa doit survivre à de nombreuses épreuves pour trouver le moyen de rentrer chez elle.</p>
+
+                    </div>
+
+                    
+
+                </div>
+
+                
+            </div>
+
+            
+        </div>
+
+        <div id="company" class="w-full flex  justify-center">
+
+            <div class=" w-10/12  flex flex-col lg:flex-row">
+                <!-- Actor -->
+                <div class="w-full lg:w-10/12 ">
+                    <p class="mt-2 text-white text-xl font-bold">Têtes d'affiche</p>
+                    <div id="actors" class="flex flex-row overflow-x-auto overflow-y-clip my-5 ">
+
+
+
+
+                    </div>
+
+
+                    
+                    
+                </div>
+                <!-- More -->
+                <div id="more" class="w-full lg:w-2/12 h-full text-white flex flex-col pl-5 pt-5 justify-around">
+
+                </div>
+
+            </div>
+            
+        
+        </div>
+
+
+
+        <!-- Footer -->
+        <footer class="h-12 bg-slate-800 mt-5 text-center flex items-center text-gray-600 justify-center">
+            <p>Copyright 2024</p>
+        </footer>
+    </body>
+
+</html>
+
+<script  src="assets/js/detail.js"></script>
+<script src="assets/js/navbar.js"></script>

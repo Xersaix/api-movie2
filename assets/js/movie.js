@@ -36,10 +36,10 @@ async function initTrending() {
             let image_link = "https://image.tmdb.org/t/p/w500";
             trending_slide.innerHTML = ""
             for (let index = 0; index < 8; index++) {
-                trending.movie.push(image_link + data["results"][index]["poster_path"])
+                trending.movie.push(data["results"][index])
                 trending_slide.innerHTML += `
                 
-                <div class="swiper-slide "><img src="${trending.movie[index]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"></div>
+                <div class="swiper-slide group" onclick="getIdForDetail(${data["results"][index]["id"]},${true})"><img src="${image_link + trending.movie[index]["poster_path"]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"><div class="absolute hidden justify-center items-center  group-hover:backdrop-brightness-50 group-hover:flex bottom-0 w-full h-full"><p class='text-white text-center font-bold'>${trending.movie[index]["title"]}</p> </div></div>
                 `
             }
         }
@@ -51,7 +51,7 @@ async function initTrending() {
         .then(data => {
             let image_link = "https://image.tmdb.org/t/p/w500";
             for (let index = 0; index < 8; index++) {
-                trending.tv.push(image_link + data["results"][index]["poster_path"])
+                trending.tv.push(data["results"][index])
 
 
             }
@@ -80,10 +80,10 @@ async function initUpcoming() {
             let image_link = "https://image.tmdb.org/t/p/w500";
             upcoming_slide.innerHTML = ""
             for (let index = 0; index < 8; index++) {
-                upcoming.movie.push(image_link + data["results"][index]["poster_path"])
+                upcoming.movie.push( data["results"][index])
                 upcoming_slide.innerHTML += `
                 
-                <div class="swiper-slide "><img src="${upcoming.movie[index]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"></div>
+                <div class="swiper-slide group" onclick="getIdForDetail(${data["results"][index]["id"]},${true})"><img src="${image_link + upcoming.movie[index]["poster_path"]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"><div class="absolute hidden justify-center items-center  group-hover:backdrop-brightness-50 group-hover:flex bottom-0 w-full h-full"><p class='text-white text-center font-bold'>${upcoming.movie[index]["title"]}</p> </div></div>
                 `
             }
         }
@@ -93,9 +93,8 @@ async function initUpcoming() {
     fetch('https://api.themoviedb.org/3/tv/airing_today?language=fr-FR&page=1', options)
         .then(response => response.json())
         .then(data => {
-            let image_link = "https://image.tmdb.org/t/p/w500";
             for (let index = 0; index < 8; index++) {
-                upcoming.tv.push(image_link + data["results"][index]["poster_path"])
+                upcoming.tv.push(data["results"][index])
 
 
             }
@@ -109,14 +108,15 @@ async function initUpcoming() {
 
 function loadTrending(movie) {
 
+    console.log(trending.tv)
     trending_slide.innerHTML = ""
-
+    let image_link = "https://image.tmdb.org/t/p/w500";
     if (movie) {
-
+        
         for (let index = 0; index < 8; index++) {
             trending_slide.innerHTML += `
             
-            <div class="swiper-slide "><img src="${trending.movie[index]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"></div>
+            <div class="swiper-slide group" onclick="getIdForDetail(${trending.tv[index]["id"]},${true})"><img src="${image_link + trending.movie[index]["poster_path"]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"><div class="absolute hidden justify-center items-center  group-hover:backdrop-brightness-50 group-hover:flex bottom-0 w-full h-full"><p class='text-white text-center font-bold'>${trending.movie[index]["title"]}</p> </div></div>
             `
 
         }
@@ -125,7 +125,7 @@ function loadTrending(movie) {
         for (let index = 0; index < 8; index++) {
             trending_slide.innerHTML += `
                 
-                <div class="swiper-slide "><img src="${trending.tv[index]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"></div>
+                <div class="swiper-slide group" onclick="getIdForDetail(${trending.tv[index]["id"]},${false})"><img src="${image_link + trending.tv[index]["poster_path"]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"><div class="absolute hidden justify-center items-center  group-hover:backdrop-brightness-50 group-hover:flex bottom-0 w-full h-full"><p class='text-white text-center font-bold'>${trending.tv[index]["name"]}</p> </div></div>
                 `
 
         }
@@ -137,12 +137,13 @@ function loadTrending(movie) {
 
 function loadUpcoming(movie) {
     upcoming_slide.innerHTML = ""
+    let image_link = "https://image.tmdb.org/t/p/w500";
     if (movie) {
 
         for (let index = 0; index < 8; index++) {
             upcoming_slide.innerHTML += `
             
-            <div class="swiper-slide "><img src="${upcoming.movie[index]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"></div>
+            <div class="swiper-slide group"><img src="${image_link + upcoming.movie[index]["poster_path"]}" loading="lazy" alt="" class=" object-fill w-full h-52 md:h-[28rem]  rounded-lg"><div class="absolute hidden justify-center items-center  group-hover:backdrop-brightness-50 group-hover:flex bottom-0 w-full h-full"><p class='text-white text-center font-bold'>${upcoming.movie[index]["title"]}</p> </div></div>
             `
 
         }
@@ -151,7 +152,7 @@ function loadUpcoming(movie) {
         for (let index = 0; index < 8; index++) {
             upcoming_slide.innerHTML += `
                 
-                <div class="swiper-slide "><img src="${upcoming.tv[index]}" loading="lazy" alt="" class=" object-fill w-full h-52 lg:h-[28rem]  rounded-lg"></div>
+                <div class="swiper-slide group"><img src="${image_link + upcoming.tv[index]["poster_path"]}" loading="lazy" alt="" class=" object-fill w-full h-52 lg:h-[28rem]  rounded-lg"><div class="absolute hidden justify-center items-center  group-hover:backdrop-brightness-50 group-hover:flex bottom-0 w-full h-full"><p class='text-white text-center font-bold'>${upcoming.tv[index]["name"]}</p> </div></div>
                 `
 
         }
@@ -161,10 +162,19 @@ function loadUpcoming(movie) {
 }
 
 
+function getIdForDetail(data,movieOrNot)
+{
+localStorage.setItem("detail",[data,movieOrNot])
+window.location.href = "detail.html";
+
+}
+
 window.onload = () => {
     initTrending()
     initUpcoming()
     topMovie()
+
+    console.log(trending.movie)
 }
 
 function topMovie() {
@@ -176,13 +186,14 @@ function topMovie() {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNGUzN2Y1YTU4ZTQ3ZGIwMGY4NTkyODU3OWY5MDBmOCIsInN1YiI6IjY0NmUxNjEzMzNhMzc2MDE1OGRjMDRhZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.10TTdpPPusGwjBn81duAdGN3P84qd250flrJJOeCyEs'
         }
     };
+   let choice = Math.floor(Math.random() * 10);
 
     fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr-FR&page=1&sort_by=popularity.desc', options)
         .then(response => response.json())
         .then(data => {
             let image_link = "https://image.tmdb.org/t/p/original";
-            top_img.src = image_link + data["results"][0]["backdrop_path"]
-            top_title.innerText = data["results"][0]["title"]
+            top_img.src = image_link + data["results"][choice]["backdrop_path"]
+            top_title.innerText = data["results"][choice]["title"]
 
         })
         .catch(err => console.error(err));

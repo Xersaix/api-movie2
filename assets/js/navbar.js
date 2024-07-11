@@ -5,17 +5,22 @@ var search_input = document.getElementById("search-input")
 
 // only this work
 window.addEventListener('scroll', () => {
-    if (window.scrollY != 0) {
+    if(document.title == "MovieScope")
+        {
 
-        navbar.classList.add("bg-black")
-    }
-    else{
+            if (window.scrollY != 0) {
 
-        navbar.classList.remove("bg-black")
+                navbar.classList.add("bg-black")
+            }
+            else{
+
+                navbar.classList.remove("bg-black")
 
 
 
-    }
+            }
+        }
+
 
 })
 
